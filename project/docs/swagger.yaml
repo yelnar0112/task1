@@ -1,0 +1,63 @@
+basePath: /
+definitions:
+  main.Request:
+    properties:
+      headers:
+        additionalProperties:
+          type: string
+        type: object
+      method:
+        type: string
+      url:
+        type: string
+    type: object
+  main.Response:
+    properties:
+      headers:
+        additionalProperties:
+          type: string
+        type: object
+      id:
+        type: integer
+      length:
+        type: integer
+      status:
+        type: integer
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: A simple proxy API that forwards requests and returns responses.
+  title: Proxy API
+  version: "1.0"
+paths:
+  /proxy:
+    post:
+      consumes:
+      - application/json
+      description: Forward a request to the specified URL and return the response.
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/main.Request'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Decoding error req
+          schema:
+            type: string
+        "500":
+          description: Error sending req" "Error reading response" "Error encoding
+            response
+          schema:
+            type: string
+      summary: Proxy a request
+swagger: "2.0"
