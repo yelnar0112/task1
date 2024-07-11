@@ -1,6 +1,7 @@
-# Proxy Server with Swagger Documentation
+# Task1
 
 This project is a simple HTTP proxy server implemented in Go. It supports forwarding requests to specified URLs and returning the responses. Additionally, it provides Swagger documentation for the API.
+
 
 ## Getting Started
 
@@ -17,10 +18,17 @@ This project is a simple HTTP proxy server implemented in Go. It supports forwar
    git clone https://github.com/yelnar0112/task1.git
 
 
+
+
+
+
+
 API Endpoints
-/proxy
-Method: POST
-Description: Forwards a request to the specified URL and returns the response.
+
+- Method: POST
+- Description: Forwards a request to the specified URL and returns the response.
+
+```yaml
 Request Body:
 {
   "method": "GET",
@@ -29,6 +37,7 @@ Request Body:
     "Content-Type": "application/json"
   }
 }
+
 Response:
 {
   "id": 1,
